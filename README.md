@@ -1,23 +1,25 @@
 # FOCUS
 
-FOCUS is a Chrome extension that helps you stay on a configured set of focus domains.
+FOCUS is a standalone website that helps you stay on task with a focus session and a configurable list of focus sites.
 
 ## What it does
 
-- Lets you enter and save a list of domains/subdomains (one per line).
-- Tracks your active tab against that list.
-- If you stay away from focus domains for more than 5 minutes and switch to another non-focus site, it starts an alarm.
-- The alarm keeps playing until you stay on a focus site continuously for at least 5 seconds.
+- Saves one domain or subdomain per line in your browser's local storage.
+- Tracks how long your focus session has been active.
+- Detects when you leave the FOCUS tab.
+- Starts a repeating audio alarm after five minutes away.
+- Silences the alarm after you return and stay on the dashboard for five seconds.
 
-## Setup
+## Run locally
 
-1. Open `chrome://extensions`.
-2. Enable **Developer mode**.
-3. Click **Load unpacked** and select:
-   - `/home/runner/work/FOCUS/FOCUS`
-4. Open the extension popup and save your focus domains (for example `example.com`).
+Open `index.html` in a browser, or serve the repository with any static web server:
 
-## Notes
+```sh
+python3 -m http.server
+```
 
-- Domain matching is hostname-based (no page/path matching).
-- A domain entry like `example.com` also matches subdomains such as `docs.example.com`.
+Then visit `http://localhost:8000`.
+
+## Browser limitation
+
+A regular website cannot inspect other browser tabs or read the URL of unrelated pages. The website therefore uses page visibility to detect leaving the FOCUS dashboard; monitoring every active tab requires a browser extension or a separately installed browser integration.
