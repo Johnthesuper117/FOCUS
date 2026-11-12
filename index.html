@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FOCUS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">FOCUS</p>
+        <h1>Protect your focus time.</h1>
+        <p class="subtitle">Keep this dashboard open while you work. If you leave it for too long, FOCUS will remind you to come back.</p>
+      </header>
+
+      <section class="card session-card" aria-labelledby="session-heading">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Current session</p>
+            <h2 id="session-heading">Stay on track</h2>
+          </div>
+          <span id="session-state" class="state-badge">Ready</span>
+        </div>
+        <div class="timer" id="timer" aria-live="polite">00:00:00</div>
+        <p id="session-message" class="session-message">Start a session, then keep this tab open while you work.</p>
+        <button id="session-toggle" class="primary-button" type="button">Start session</button>
+      </section>
+
+      <section class="card" aria-labelledby="domains-heading">
+        <p class="eyebrow">Your focus sites</p>
+        <h2 id="domains-heading">What are you working on?</h2>
+        <p class="helper">Add one domain or subdomain per line. This list keeps your focus plan visible during the session.</p>
+        <textarea id="domain-list" rows="6" placeholder="example.com&#10;docs.example.com"></textarea>
+        <div class="form-footer">
+          <span id="save-status" class="status" aria-live="polite"></span>
+          <button id="save" class="secondary-button" type="button">Save sites</button>
+        </div>
+      </section>
+
+      <p class="notice"><strong>How it works:</strong> after five minutes away from this dashboard, the alarm sounds. Return here for five seconds to silence it.</p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
